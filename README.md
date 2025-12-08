@@ -1,10 +1,23 @@
 # automatic-package-version-bump
 
+[![GitHub Super-Linter](https://github.com/actions/javascript-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
+![CI](https://github.com/actions/javascript-action/actions/workflows/ci.yml/badge.svg)
+
 This GitHub action automates the process of updating the version property in the
 package.json file of your repository, following the semantic versioning
 convention. It triggers whenever there's a merge event to the specified branch.
 
 ## Inputs
+
+### `commit-author-name`
+
+**Optional** Specify the name of the author for the commit. Default to the name
+of the person who merged the pull request.
+
+### `commit-author-email`
+
+**Optional** Specify the email of the author for the commit. Default to the
+email of the person who merged the pull request.
 
 ### `patches`
 
@@ -105,7 +118,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: Bump to next version
-        uses: sliker/automatic-package-version-bump-action@v0.0.1
+        uses: sliker/automatic-package-version-bump-action@v1.0.0
 ```
 
 **Protected branch**:
@@ -134,5 +147,5 @@ jobs:
           # Store it in the Repository Secrets.
           token: ${{ secrets.TOKEN }}
       - name: Bump to next version
-        uses: sliker/automatic-package-version-bump-action@v0.0.1
+        uses: sliker/automatic-package-version-bump-action@v1.0.0
 ```
